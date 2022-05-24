@@ -8,6 +8,10 @@ function instaScript() {
     .then(function(data) {
       console.log('Request successful', data);
       var list = document.getElementsByClassName('insta')[0];
+      var h = document.createElement('h2');
+      h.className = 'insta_Lable';
+      h.innerHTML = 'Подпишитесь на мой инстаграм';
+      list.before(h);
       for (let i of data.media.data)
       {
         fetch(`https://graph.instagram.com/` + i.id + `?fields=media_type,media_url&access_token=` + token)
@@ -19,12 +23,13 @@ function instaScript() {
             if (data.media_type === "IMAGE")
             {const img = document.createElement("img"); //если фото
             img.src = data.media_url;
-            img.className = 'instaFoto';
+            img.className = 'instaFoto';        
             list.append(img);}
             if (data.media_type === "VIDEO")
             {const video = document.createElement("iframe");//если видео
             video.src = data.media_url;
             video.className = 'instaFoto';
+            video.href = 'https://www.youtube.com/watch?v=Z-WqqIBglIM';
             list.append(video);}  
             return data.media_url;
         })
@@ -38,4 +43,4 @@ function instaScript() {
       console.log('Request failed', error)
     });
 }
-document.addEventListener("DOMContentLoaded", instaScript);
+export default instaScript;

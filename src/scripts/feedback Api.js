@@ -1,5 +1,7 @@
 async function postData(url = 'Url моего будующего сервера') { //У меня пока что нет сервера
-    const values = [].slice.call(document.getElementsByClassName("inpField")).map((n) => {return n.value}) //Получение значений полей имени/почты/номера
+    const values = [].slice.call(document.getElementsByClassName("inpField")).map((n) => {return n}) //Получение значений полей имени/почты/номера
+    const massage = document.getElementsByClassName('massage')[0].value;
+    values.push(massage);
     console.log('try to post massage from : ' + values);
     try {
         fetch(url, {

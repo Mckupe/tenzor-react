@@ -1,17 +1,17 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: optimizeSpeed;
   }
   
-  .App
-  {
-    display:grid; 
-    overflow: hidden;
-    grid-template-rows: min-content min-content min-content; 
+  .Page_layout{
+    margin: 0 auto;
+    width: var(--layout-width);
+
   }
-  
-  .App-header
+
+  .Main-header
   {
     background-color: #F2EFEA;
     background-image: url("foto/topImg.jpg");
@@ -21,7 +21,7 @@
     background-position:center 110%;
   }
   
-  .top-App-header{   
+  .top-Main-header{   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,7 @@
     color:dimgray;
   }
   
-  .bottom-App-header
+  .bottom-Main-header
   {
     display: grid;
     grid-template-columns: 2fr 2fr; 
@@ -84,12 +84,12 @@
     color: gray;
   }
   
-  .content
+  /* .content
   {
     display:grid; 
     overflow: hidden;
     grid-template-rows: min-content min-content min-content min-content;
-  }
+  } */
   
   .about{
     position: relative;
@@ -159,67 +159,57 @@
     grid-row: 1/3;
   }
   
-  .shop
-  {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .block{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;   
-  }
-  
-  .tovar{ 
-    height: 100%;
-    width: 100%;
-    background-color: bisque;
-    background-clip: border-box; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .material{
-    height: 10%;
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
-    align-items: center;
-  }
-  
-  .bordered{
-    height: 100%;
-    border-bottom: 3px solid black;
-  }
-  
-  .material > h1{
-    writing-mode: vertical-lr;
-    transform:rotate(180deg);   
+  .block{  
+    display: grid;  
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 25% 25% 25% 25%;
+    justify-content: space-between;
   }
   
   .tovar{
     background-color: #F9F9F7;
+    display: grid;
+    grid-template: 100% / 25% 25% 25% 25%;
+    align-items:center;
   }
   
-  .tovar > i{
-    margin: 2%;
+  .left_material{
+    font-size:1vmax;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  .material_name{
+    writing-mode: vertical-lr;
+    transform:rotate(180deg); 
+  }
+
+  .bordered{
+    border-bottom: 3px solid black;
+  }
+
+  .shop_lable{
+    background-color: #F9F9F7;
+    text-align: center;
+    padding:2%;
     font-size: 300%;
   }
   
   .tovarFoto{
-    object-fit: cover;
-    width: 70%;
     height: 80%;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
   }
   
   .shopButton{
-    margin: 5% 35% 5% 35%;
+    display: block;
+    margin: 3% auto;
     padding: 2%;
-    font-size: 350%;
+    font-size: 5vmax;
   }
   
   .insta
@@ -228,6 +218,14 @@
     height: min-content;
     display: flex;
     justify-content: space-around;
+  }
+
+  .insta_Lable{
+    font-size: 2vmax;
+    background-color: #fde1c6;
+    padding: 1%;
+    width: 100%;
+    text-align: center;
   }
   
   .instaFoto{
@@ -306,7 +304,112 @@
     font-size: 150%;
     border: none;
     background-color:darksalmon;
+    cursor: pointer;
+  }
+
+
+  .modal_wrapper {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+    height: 100%;
+    display: block;
   }
   
+  .modal_body{
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    margin-top: 5%;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 100%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    grid-template-rows:10% 15% 60% 15%;
+  }
   
+  .modal_body::-webkit-scrollbar{
+    width: 0;
+    background: transparent;
+  }
+
+  .modal_body{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .modal_close{
+    text-align: right;
+    margin-top: -15px;
+    font-size: 40px;
+    color: gray;
+    cursor: pointer;
+    grid-column: 1/4;
+  }
+
+  .modal_image{
+    height: 100%;
+    width: 100%;
+    grid-row: 2/5;
+    object-fit: cover;
+  }
+
+  .modal_about{
+    text-align: left;
+    padding-left: 5%;
+    width: 100%;
+    grid-column: 2/4;
+    word-break: break-all;
+  }
+
+  .modal_name{
+    text-align: center;
+    width: 100%;
+    grid-column: 2/4;
+  }
+
+  .modal_price{
+    text-align: center;
+    width: 100%;
+  }
+
+  .modal_cartButton{
+    width: 100%;
+    font-size: 130%;
+  }
+
+  .cartAlert{
+    padding: 1%;
+    white-space: nowrap;
+    position:fixed;
+    width: min-content;
+    right: 0;
+    top: 0;
+    background-color: rgba(238, 169, 66, 0.199);
+    border-bottom-left-radius:15px
+  }
   
+  .content_cart{
+    background-color: #fde1c6;
+  }
+
+  .info_cart{
+    padding: 2%;
+  }
+
+  .cart_Button{
+    height: 50px;
+    width: 10%;
+  }
+
+  .orders_cart{
+    padding: 2%;
+  }
+
+  .imputs_cart{
+
+  }           
