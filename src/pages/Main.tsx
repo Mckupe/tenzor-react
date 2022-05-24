@@ -78,7 +78,7 @@ const Main = () => {
                             </div>
                             <div className="material"></div>
                         </div>
-                        <button className="shopButton"> VICE </button>
+                        <Link to="/cart"><button className="shopButton"> VICE </button></Link>
                     </section>
 
                     <a href= 'https://www.instagram.com/nelly_crystal/' className="insta">
