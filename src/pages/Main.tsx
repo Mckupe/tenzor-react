@@ -75,15 +75,11 @@ const Main = () => {
                             <div className="material"></div>
                         </div>
                         <Link to="/cart"><button className="shopButton"> VICE </button></Link>
-<<<<<<< HEAD
-=======
-                    </section>
 
+                    </section>
                     <a href= 'https://www.instagram.com/nelly_crystal/' className="insta">
                     </a>
                     <section className="deliver">
-
->>>>>>> a059efea43089a182b3ec571e1c82a3499a40f2d
                     </section>
                     {/* <Instagram></Instagram> */}
                     <section className="deliver" />
