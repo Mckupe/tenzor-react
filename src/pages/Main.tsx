@@ -1,13 +1,14 @@
 import { postData } from '../scripts/feedback Api';
 import { Link } from 'react-router-dom';
-import instaScript from '../scripts/Instagramm Api';
-import {loadInfo,dataLoad} from '../scripts/load Goods';
-import { useEffect } from 'react';
+import Instagram from '../scripts/Instagramm Api';
+import { Data, Modal } from '../scripts/load Goods';
+import { useState } from 'react';
 
-const Main = () => {  
-    useEffect(loadInfo);
-    useEffect(dataLoad);
-    useEffect(instaScript);
+const Main = () => { 
+    const [id, setId] = useState(0)
+    const [modActive, setModActive] = useState(false)
+    const [counts, setCounts] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].count) : 0)
+    const [sum, setSum] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].sumPrice) : 0)
     return (
         <div className='Page_layout'>
             <div className="Main">
@@ -39,9 +40,9 @@ const Main = () => {
                             <img className="foto3" src="./foto/3.JPG" alt="Третье фото" />
                             <div className="text1">
                                 <h1>ABOUT US</h1>
-                                <p>testtesttesttesttesttestettesttesttestetestettesttest</p>
-                                <p>test testtesttesttesttestettesttesttestetestettesttesttest</p>
-                                <p>Подпись заказчика</p>
+                                <p className='text-p'>testtesttesttesttesttestettesttesttestetestettesttest</p>
+                                <p className='text-p'>test testtesttesttesttestettesttesttestetestettesttesttest</p>
+                                <p className='text-p'>Подпись заказчика</p>
                             </div>
                         </div>
                     </section>
@@ -55,37 +56,28 @@ const Main = () => {
                             <div className="left_material">
                                 <h1 className='material_name'>Bronze</h1>
                             </div>
-                            <div className="tovar bordered">
-                            </div>
+                            <Data x='0' y='4' className="tovar bordered" setActive={setModActive} setId={setId}></Data>
                             <div className="material bordered"></div>
                             <div className="left_material bordered">
                                 <h1 className='material_name'>Нень</h1>
                                 <h1 className='material_name'>Vlasovdap dolinsky</h1>
                             </div>
-                            <div className="tovar bordered">
-                            </div>
+                            <Data x='4' y='8' className="tovar bordered" setActive={setModActive} setId={setId}></Data>
                             <div className="material"></div>
                             <div className="left_material">
                                 <h1 className='material_name'>Sperky</h1>
                             </div>
-                            <div className="tovar">
-                            </div>
+                            <Data x='8' y='12' className="tovar" setActive={setModActive} setId={setId}></Data>
                             <div className="material"></div>
-
                             <div className="left_material">
                             </div>
-                            <div className="tovar">
-                            </div>
+                            <Data x='12' y='16' className="tovar bordered" setActive={setModActive} setId={setId}></Data>
                             <div className="material"></div>
                         </div>
-                        <button className="shopButton"> VICE </button>
+                        <Link to="/cart"><button className="shopButton"> VICE </button></Link>
                     </section>
-
-                    <a href= 'https://www.instagram.com/nelly_crystal/' className="insta">
-                    </a>
-                    <section className="deliver">
-
-                    </section>
+                    {/* <Instagram></Instagram> */}
+                    <section className="deliver" />
                 </main>
 
                 <footer className='footers'>
@@ -99,17 +91,18 @@ const Main = () => {
                         <input className="inpField"></input>
                         <p>Phone</p>
                         <input className="inpField"></input>
-                        <p>Mesage</p>
-                        <textarea className="message"></textarea>
+                        <p>Messege</p>
+                        <textarea className="messege"></textarea>
                     </div>
-                    <button onClick={() => { postData("Url сервера, которого пока нет") }} className="send">Send</button>
+                    <button onClick={() => postData()} className="send">Send</button>
                 </footer>
             </div>
             <div className='cartAlert'>
-                <h2 className='total_Count'>Товаров в корзине: 0</h2>
-                <h2 className='total_Sum'>Общая сумма товаров: 0</h2>
+                <h2 className='total_Count'>Товаров в корзине: {counts}</h2>
+                <h2 className='total_Sum'>Общая сумма товаров: {sum} Руб.</h2>
                 <Link to='/cart'>К корзине</Link>
             </div>
+            <Modal active={modActive} setActive={setModActive} id={id} setCounts={setCounts} setSum={setSum}></Modal>
         </div>
     )
 }

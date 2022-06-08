@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import {loadInfo,postOrders} from '../scripts/load Goods';
 
 const Cart = () => {
-    useEffect(loadInfo)
+    const [counts, setCounts] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].count) : 0)
+    const [sum, setSum] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].sumPrice) : 0)
     return (
         <div className="Cart">
             <header className="Main-header">
@@ -26,12 +26,12 @@ const Cart = () => {
                 </header>
             <main className="content_cart">
                 <div className="info_cart">
-                <h1 className='total_Count'>Товаров в корзине: 0</h1>
-                <h1 className='total_Sum'>Общая сумма товаров: 0</h1>
+                <h1 className='total_Count'>Товаров в корзине: {counts}</h1>
+                <h1 className='total_Sum'>Общая сумма товаров: {sum}</h1>
                 </div>
                 <div className="orders_cart">
                     <div className="tovar_cart">
-                        <button onClick={()=>postOrders("Url сервера, которого пока нет")} className="cart_Button"> Сделать заказ </button>
+                        <button onClick={()=>{}} className="cart_Button"> Сделать заказ </button>
                     </div>
                 </div>
                 <div className="imputs_cart">             

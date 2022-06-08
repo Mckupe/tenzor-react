@@ -1,10 +1,13 @@
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from "./components/Routes";
 
 function App() {
     return (
         <BrowserRouter>
-            <AppRouter></AppRouter>
+            <Routes>
+                {publicRoutes.map(({ path, Component }) =>
+                    <Route key={path} path={path} element={Component} />)}
+            </Routes>
         </BrowserRouter>
     )
 }
