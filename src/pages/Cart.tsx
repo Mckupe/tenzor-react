@@ -31,7 +31,7 @@ const Cart = () => {
                 </div>
                 <div className="orders_cart">
                     <div className="tovar_cart">
-                        <button onClick={()=>{}} className="cart_Button"> Сделать заказ </button>
+                        <button className="cart_Button"> Сделать заказ </button>
                     </div>
                 </div>
                 <div className="imputs_cart">             

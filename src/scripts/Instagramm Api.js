@@ -10,34 +10,39 @@ const Instagram = () => {
         return response.json();
       })
       .then((data) => {
-        for (let i of data.media.data) {
-          fetch(`https://graph.instagram.com/` + i.id + `?fields=media_type,media_url&access_token=` + token)
-            .then((response) => response.json())
-            .then((data) => {
-              let temp = instData;
-              temp.push(data.media_url)
-              setInstData(temp);
-              console.log(instData);
-              //console.log(data.media_url);
-              // data.map((item) => {item.media_type === "IMAGE" ? <img src={data.media_url} class="instaFoto" alt="фото из инстаграмма" /> : <iframe src={data.media_url} class="instaFoto" title={i.id} href="https://www.youtube.com/watch?v=Z-WqqIBglIM" />})
-              // if (data.media_type === "IMAGE") {
-              //   list.push(<img src={data.media_url} class="instaFoto" alt="фото из инстаграмма" />)
-              // }
-              // if (data.media_type === "VIDEO") {
-              //   list.push(<iframe src={data.media_url} class="instaFoto" title={i.id} href="https://www.youtube.com/watch?v=Z-WqqIBglIM" />)
-              // }
-            }).catch((err) => console.log(err))
-        }
-      }).catch((err) => console.log(err))
+        console.log(data);
+        let requests = data.media.data.map(i => fetch(`https://graph.instagram.com/` + i.id + `?fields=id,media_type,media_url&access_token=` + token));
+        Promise.all(requests)
+          .then(responses => Promise.all(responses.map(r => r.json())))
+          .then((data) => {
+            const temp = instData.slice();
+            temp.push(data);
+            setInstData(data);
+            console.log(instData);
+          }).catch((err) => console.log(err))
+      }
+      ).catch((err) => console.log(err))
   }, [])
-  
-  //ХОТЬ УБЕЙ НЕ РАБОТАЕТ!!!! НЕ ПОНИМАЮ !! вроде создаёт и записывает instData, но ничего не меняет
+
+  if (instData.length !== 0)
   return (<>
-    <h2 className="insta_Lable">Подпишитесь на мой инстаграм</h2>
-    <a href="https://www.instagram.com/nelly_crystal/" className="insta">
-      {instData.map((data)=>(<img src={data} className="instaFoto" alt="фото из инстаграмма"/>))}
+    <a href="https://www.instagram.com/nelly_crystal/">
+      <h2 className="insta_Lable">Подпишитесь на мой инстаграм !</h2>
+      <div href="https://www.instagram.com/nelly_crystal/" className="insta">
+        {instData.map((data) => {
+          switch (data.media_type) {
+            case "IMAGE":
+              return <img src={data.media_url} className="instaFoto" alt="фото из инстаграмма" key={data.id} />;
+            case "VIDEO":
+              return <iframe src={data.media_url} class="instaFoto" title={data.id} key={data.id} href="https://www.youtube.com/watch?v=Z-WqqIBglIM" />;
+            default:
+              return {};
+          }
+        })}
+      </div>
     </a>
   </>);
+  else return (<></>)
 }
 
 export default Instagram;
