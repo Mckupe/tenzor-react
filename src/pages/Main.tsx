@@ -1,14 +1,16 @@
 import { postData } from '../scripts/feedback Api';
 import { Link } from 'react-router-dom';
 import Instagram from '../scripts/Instagramm Api';
-import { Data, Modal } from '../scripts/load Goods';
+import { Data, Modal, useInfo } from '../scripts/load Goods';
 import { useState } from 'react';
 
 const Main = () => { 
     const [id, setId] = useState(0)
     const [modActive, setModActive] = useState(false)
-    const [counts, setCounts] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].count) : 0)
-    const [sum, setSum] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].sumPrice) : 0)
+    //const [counts, setCounts] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].count) : 0)
+    //const [sum, setSum] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].sumPrice) : 0)
+    const sum = useInfo("sumPrice");
+    const count = useInfo("count");
     return (
         <div className='Page_layout'>
             <div className="Main">
@@ -71,7 +73,7 @@ const Main = () => {
                             <div className="material"></div>
                             <div className="left_material">
                             </div>
-                            <Data x='12' y='16' className="tovar bordered" setActive={setModActive} setId={setId}></Data>
+                            <Data x='12' y='16' className="tovar" setActive={setModActive} setId={setId}></Data>
                             <div className="material"></div>
                         </div>
                         <Link to="/cart"><button className="shopButton"> VICE </button></Link>
@@ -81,7 +83,7 @@ const Main = () => {
                     </a>
                     <section className="deliver">
                     </section>
-                    {/* <Instagram></Instagram> */}
+                    <Instagram></Instagram>
                     <section className="deliver" />
                 </main>
 
@@ -103,11 +105,11 @@ const Main = () => {
                 </footer>
             </div>
             <div className='cartAlert'>
-                <h2 className='total_Count'>Товаров в корзине: {counts}</h2>
-                <h2 className='total_Sum'>Общая сумма товаров: {sum} Руб.</h2>
+                <h2 className='total_Count'>Товаров в корзине: {count[0]}</h2>
+                <h2 className='total_Sum'>Общая сумма товаров: {sum[0]} Руб.</h2>
                 <Link to='/cart'>К корзине</Link>
             </div>
-            <Modal active={modActive} setActive={setModActive} id={id} setCounts={setCounts} setSum={setSum}></Modal>
+            <Modal active={modActive} setActive={setModActive} id={id} setCounts={count[1]} setSum={sum[1]}></Modal>
         </div>
     )
 }

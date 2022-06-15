@@ -1,4 +1,5 @@
 //Токен работает только с vpn(санкции) и меняется каждый час(приложение в бетте)
+import {useState } from "react";
 import data from '../data/goods.json';
 import orders from '../data/orders.json';
 
@@ -18,15 +19,13 @@ const Modal = ({active,setActive,id,setCounts,setSum}) =>{
                 <h1 className="modal_name">{data[id].name}</h1>
                 <p className="modal_about">{data[id].about}</p>
                 <h1 className="modal_price">{data[id].price} Руб.</h1>
-                <button className="modal_cartButton" onClick={()=>{addOrder(id); 
-                    setCounts(JSON.parse(localStorage.getItem('cart'))[0].count); 
-                    setSum(JSON.parse(localStorage.getItem('cart'))[0].sumPrice)}}>В корзину</button>
+                <button className="modal_cartButton" onClick={()=>{addOrder(id,setSum,setCounts);}}>В корзину</button>
             </div>
         </div>
     );
 }
 
-function addOrder(id) {//добовляет товар в корзину
+function addOrder(id,setSum,setCounts) {//добовляет товар в корзину
     if (localStorage.getItem('cart') != null) {
         orders = JSON.parse(localStorage.getItem('cart'));
     }
@@ -37,8 +36,14 @@ function addOrder(id) {//добовляет товар в корзину
         orders[currId].count++;
     }
     else orders[currId] = (data[id]);
-    //console.log(orders);
+    setCounts(orders[0].count);
+    setSum(orders[0].sumPrice);
     localStorage.setItem('cart', JSON.stringify(orders));
 }
 
-export { Data, Modal};
+function useInfo(item) {
+    const [first, second] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') )[0][item]) : 0);
+    return [first, second];
+}
+
+export { Data, Modal, useInfo};
