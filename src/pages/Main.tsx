@@ -7,8 +7,6 @@ import { useState } from 'react';
 const Main = () => { 
     const [id, setId] = useState(0)
     const [modActive, setModActive] = useState(false)
-    //const [counts, setCounts] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].count) : 0)
-    //const [sum, setSum] = useState(localStorage.getItem('cart') ? (JSON.parse(localStorage.getItem('cart') || '{}')[0].sumPrice) : 0)
     const sum = useInfo("sumPrice");
     const count = useInfo("count");
     return (

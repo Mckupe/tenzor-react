@@ -24,7 +24,7 @@ const Instagram = () => {
       ).catch((err) => console.log(err))
   }, [])
 
-  if (instData.length !== 0)
+  if (instData.length !== 0)//если пришол ответ, то отрисовать
   return (<>
     <a href="https://www.instagram.com/nelly_crystal/">
       <h2 className="insta_Lable">Подпишитесь на мой инстаграм !</h2>
