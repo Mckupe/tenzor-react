@@ -1,0 +1,130 @@
+[
+    {
+        "id":0,
+        "name":"Брошь",      
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":1,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":2,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":3,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":4,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":5,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":6,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":7,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":8,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":9,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":10,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":11,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":12,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":13,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":14,
+        "name":"Серги",
+        "img":"./foto/mater2.png",
+        "price":2600,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    },
+    {
+        "id":15,
+        "name":"Брошь",
+        "img":"./foto/mater1.png",
+        "price":1300,
+        "about":"sefgueguogoguoergugerhuioertjkaerthg8owrguoerhbgiosjbisdfhbujilghaeruighadrklugiodrgbdripuhgejlabgioerghiaergaioeurghauoerg",
+        "count": 1
+    }
+]
